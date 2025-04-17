@@ -1,0 +1,18 @@
+name: Unzip and List Contents
+
+on:
+  push:
+    paths:
+      - wingo-fetch-github.zip
+
+jobs:
+  unzip:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+
+      - name: Unzip the file
+        run: |
+          unzip wingo-fetch-github.zip -d unzipped-folder
+          ls -la unzipped-folder
